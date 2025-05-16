@@ -1,0 +1,14 @@
+/* General */
+section {
+    margin: 3% 40px;
+}
+
+/* Summory */
+#summory {
+    display: flex;
+    background-color: #E7E7E7;
+}
+
+#summory > p {
+    margin-left: 3%;
+}

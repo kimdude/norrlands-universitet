@@ -1,0 +1,54 @@
+/* General */
+section {
+    padding: 40px 0px 80px 0px;
+    background-color: #E7E7E7;
+}
+
+/* Banner */
+#introPic {
+    height: 400px;
+    background-image: url("../../../../public/campus.jpg");
+    background-size: cover;
+}
+
+#drapes {
+    height: 100%;
+    margin-top: 0px;
+    align-content: center;
+    background-color: rgba(231,231,231,0.75);
+}
+
+#drapes > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Intro text */
+#introText {
+    justify-self: center;
+    max-width: 50ch;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Alternatives */
+#alternatives {
+    display: flex;
+    margin-top: 80px;
+    justify-content: center;
+    text-align: center;
+}
+
+#ourCourses{
+    margin-right: 10%;
+    text-decoration: none;
+    color: black;
+}
+
+#yourCourses{
+    margin-left: 10%;
+    text-decoration: none;
+    color: black;
+}

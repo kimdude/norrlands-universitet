@@ -1,0 +1,17 @@
+ul {
+    display: flex;
+    margin: 0px;
+    list-style-type: none;
+}
+
+a {
+    padding: 66px 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.active {
+    font-weight: 700;
+    background-color: #E7E7E7;
+    color: #C73717;
+}

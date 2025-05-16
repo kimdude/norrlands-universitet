@@ -1,0 +1,47 @@
+/* Header */
+header {
+    display: flex;
+    height: 150px;
+    background-color: #F24822;
+}
+
+#logo {
+    margin-left: 2%;
+    margin-top: auto;
+    margin-bottom: auto; 
+}
+
+#navigation {
+    margin-left: auto;
+    margin-right: 2%;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    padding: 2%;
+    background-color: #F24822;
+    color: #fff;
+}
+
+div > p {
+    margin: 6px;
+}
+
+#emailAdress {
+    margin: 15px 5px !important;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#someLinks {
+    margin-left: auto;
+    align-content: center;
+}
+
+#someLinks > a {
+    margin: 5px;
+}

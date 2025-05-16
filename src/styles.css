@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+/* General */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Poiret+One&display=swap');
+
+body {
+    margin: 0px;
+    font-weight: 600;
+    font-family: "Poiret One", Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    background-color: #B8B8B8;
+}
+
+h1 {
+    font-family: "DM Serif Text";
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+h2 {
+    font-family: "DM Serif Text";
+    font-size: 2rem;
+}
