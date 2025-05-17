@@ -6,13 +6,23 @@ section {
 
 /* Filters */
 #inputs {
+    background-color: #E7E7E7;
+    position: sticky;
+    top: 0;
+    display: flex;
     margin-bottom: 40px;
     padding: 20px 0px;
-    background-color: #E7E7E7;
+    box-shadow: 0px 20px 10px rgba(99, 99, 99, 0.5);
+}
+
+#inputs > div {
+    flex: 1;
+    align-content: center
 }
 
 label {
     margin-left: 3%;
+    margin-right: 5px;
 }
 
 input, select {
@@ -22,17 +32,61 @@ input, select {
     box-shadow: 0px 0px 5px rgba(0,0,0,0.2)
 }
 
-/* Search results */
-#courseSummory {
-    display: flex;
-    align-items: center;
-}
-
-#courseSummory > p {
-    line-height: 0rem;
+#resultCount {
     margin-left: auto;
+    margin-right: 3%;
 }
 
-#courseSummory > h1 {
-    line-height: 0rem;
+/* Courses */
+article {
+    display: flex;
+    padding: 10px 2%;
+    margin: 20px 0px;
+    background-color: #E7E7E7;
+    border-radius: 5px;
+    box-shadow: 2px 0px 15px rgba(167, 167, 167, 0.7);
+}
+
+button {
+    height: 40px;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+article > button {
+    box-shadow: 2px 0px 10px inset rgba(192, 148, 37,0.7);
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #FFC943;
+}
+
+article > button:hover {
+    box-shadow: 0px 0px 15px 2px inset rgba(192, 148, 37,0.7);
+}
+
+#seeMoreDiv {
+    display: flex;
+}
+
+#loadBtn {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    border-color: #F24822;
+    box-shadow: 2px 0px 10px inset rgba(167, 167, 167, 0.7);
+    color: #F24822;
+}
+
+#loadBtn:hover {
+    box-shadow: 0px 0px 15px 2px inset rgba(167, 167, 167,0.7) !important;
+}
+
+#showedArticles {
+    color: rgb(105, 105, 105);
+}
+
+article > div > a {
+    color: black;
 }

@@ -1,11 +1,10 @@
 /* General */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&display=swap');
 
 body {
     margin: 0px;
     font-weight: 600;
-    font-family: "Poiret One", Arial, Helvetica, sans-serif;
-    letter-spacing: 1px;
+    font-family: "DM Sans", Arial, Helvetica, sans-serif;
     background-color: #B8B8B8;
 }
 
@@ -16,6 +15,6 @@ h1 {
 }
 
 h2 {
-    font-family: "DM Serif Text";
     font-size: 2rem;
+    line-height: 1rem;
 }
