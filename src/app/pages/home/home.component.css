@@ -12,10 +12,13 @@ section {
 }
 
 #drapes {
+    position: relative;
     height: 100%;
     margin-top: 0px;
     align-content: center;
     background-color: rgba(231,231,231,0.75);
+    animation-name: dropBanner;
+    animation-duration: 4s;
 }
 
 #drapes > img {
@@ -51,4 +54,9 @@ section {
     margin-left: 10%;
     text-decoration: none;
     color: black;
+}
+
+@keyframes dropBanner {
+    0% {top: -400px;}
+    100% {top: 0px;}
 }

@@ -1,24 +1,32 @@
 <!-- Search inputs -->
-<div id="inputs">
-    <div>
-        <label for="search">Sök: </label>
-        <input type="text" name="search" id="search" placeholder="kursnamn, kurskod" [(ngModel)]="filterValue" (input)="filterSearch()">
-        <label for="subject">Ämne: </label>
-        <select name="subject" id="subject">
-            <option value="Choose" hidden="true" select="selected">Välj</option>
-            <option *ngFor="let category of categories" value="{{ category }}">{{ category }}</option>
-        </select>
-        <label for="points">Poäng: </label>
-        <select name="points" id="points">
-            <option value="Choose" hidden="true" select="selected">Välj</option>
-            <option *ngFor="let point of points" value="{{ point }}">{{ point }}</option>
-        </select>
+<div id="inputsContainer">
+    <div id="inputs">
+        <div id="filter">
+            <label for="search">Sök: </label>
+            <input type="text" name="search" id="search" placeholder="kursnamn, kurskod" [(ngModel)]="filterValue" (input)="filterSearch()">
+            <label for="subject">Ämne: </label>
+            <select name="subject" id="subject" [(ngModel)]="subjectValue" (change)="filterSubject()">
+                <option *ngFor="let category of categories" value="{{ category }}">{{ category }}</option>
+            </select>
+        </div>
+        <div id="sort" (click)="displaySort()">
+            <p>Sortera</p>
+            <img [src]="sortIcon" width="30" alt="Sortera knapp">
+        </div>
     </div>
-    <p id="resultCount">Antal kurser: {{ filteredCourses.length }}</p>
+    <ul *ngIf="clicked" (click)="sortList($event)">
+        <li>Kursnamn</li>
+        <li>Ämne</li>
+        <li>Kurskod</li>
+        <li>Poäng</li>
+    </ul> 
 </div>
 <!-- Courses -->
 <section>
-    <h1>Kurser</h1>
+    <div id="searchResults">
+        <h1>Kurser</h1>
+        <p class="showedArticles">Antal kurser: {{ filteredCourses.length }}</p>
+    </div>
     <!-- Artiklar för kurser-->
     <div *ngFor="let course of filteredCourses; let i=index">
         <article *ngIf="i < indexLimit ">
@@ -33,6 +41,6 @@
     <!-- Visa fler kurser -->
     <div id="seeMoreDiv" *ngIf="moreCourses">
         <button (click)="loadMore()" id="loadBtn"><strong>Ladda fler</strong></button>
-        <p id="showedArticles">Har visats: {{ indexLimit }}st</p>
+        <p>Antal visade: {{ indexLimit }}st</p>
     </div>
 </section>

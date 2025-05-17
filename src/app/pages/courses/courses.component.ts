@@ -14,34 +14,50 @@ export class CoursesComponent {
   courses: CourseTs[] = [];
   filteredCourses: CourseTs[] = [];
   categories: string[] = [];
-  points: number[] = [];
+
+  sortIcon: string = "sort_icon.svg"
 
   filterValue: string = "";
-  indexLimit: number = 10;
-  moreCourses: boolean = true;
+  subjectValue: string = "";
+  indexLimit: number = 0;
+  moreCourses: boolean = false;
+  clicked: boolean = false;
 
   constructor( private courseService: HttpClientService ) {};
 
   ngOnInit() {
+    //Fetching courses
     this.courseService.getCourses().subscribe(data => {
       this.courses = data;
       this.filteredCourses = data;
       this.sortCourses();
+      this.loadMore()
+
+      //Setting default values for inputs
+      const subjectDefault: string = this.categories[0];
+      this.subjectValue = subjectDefault;
     })
   }
 
   //Loading more courses
   loadMore(): void {
-    const newLimit: number = this.indexLimit + 10;
-    this.indexLimit = newLimit;
+    const remainingCourses = this.filteredCourses.length - this.indexLimit;
 
-    if(this.indexLimit >= this.courses.length) {
+    if(remainingCourses < 10) {
+      const newLimit: number = this.indexLimit + remainingCourses;
+      this.indexLimit = newLimit;
+
       this.moreCourses = false;
+
     } else {
+      const newLimit: number = this.indexLimit + 10;
+      this.indexLimit = newLimit;
+
       this.moreCourses = true;
     }
   }
 
+  //Sorting courses
   sortCourses(): void {
     //Sorting categories
     const allCategories: string[] = this.courses.map((course) => {
@@ -50,21 +66,91 @@ export class CoursesComponent {
 
     const sortedCourses: string[] = allCategories.filter((category, index) => allCategories.indexOf(category) === index);
     this.categories = sortedCourses;
-
-    //Sorting points  
-    const allPoints: number[] = this.courses.map((course) => {
-      return course.points
-    });
-
-    const sortedPoints: number[] = allPoints.filter((category, index) => allPoints.indexOf(category) === index);
-    const orgPoints: number[] = sortedPoints.sort((a,b) => a -b)
-    this.points = orgPoints;
   }
 
+  //Filtering by search phrase
   filterSearch(): void {
     this.filteredCourses = this.courses.filter((course) =>
-      course.courseName.toLowerCase().includes(this.filterValue.toLocaleLowerCase())
-    )
+      course.courseName.toLowerCase().includes(this.filterValue.toLocaleLowerCase()) || course.courseCode.toLowerCase().includes(this.filterValue.toLocaleLowerCase())
+    );
+
+    //Reseting displayed articles per search
+    this.indexLimit = 0;
+    this.loadMore();
   }
 
-}
+  //Filtering by subject
+  filterSubject(): void {
+    this.filteredCourses = this.courses.filter((course) =>
+      course.subject.includes(this.subjectValue)
+    );
+
+    //Reseting displayed articles per search
+    this.indexLimit = 0;
+    this.loadMore();
+  }
+
+  //Displaying sort options
+  displaySort(): void {
+    if(this.clicked === false) {
+      this.clicked = true;
+    } else {
+      this.clicked = false;
+    }
+  }
+
+  //Sorting courses
+  sortList(e: Event): void {
+    const target = e.target as HTMLElement;
+    const sortBy: string | null = target.textContent;
+
+    if(sortBy === "Kursnamn") {
+      //Sorting by cours name
+      this.filteredCourses.sort((a,b) => {
+        if(a.courseName > b.courseName) {
+          return 1;
+        } if(a.courseName < b.courseName) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
+      
+    } else if(sortBy === "Ämne") {
+      //Sorting by subject
+      this.filteredCourses.sort((a,b) => {
+        if(a.subject > b.subject) {
+          return 1;
+        } if(a.subject < b.subject) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
+
+    } else if(sortBy === "Kurskod") {
+      //Sorting by cours code
+      this.filteredCourses.sort((a,b) => {
+        if(a.courseCode > b.courseCode) {
+          return 1;
+        } if(a.courseCode < b.courseCode) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
+
+    } else {
+      //Sorting by points
+      this.filteredCourses.sort((a,b) => {
+        if(a.points > b.points) {
+          return 1;
+        } if(a.points < b.points) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
+    }
+  }
+} 

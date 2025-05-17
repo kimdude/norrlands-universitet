@@ -1,11 +1,17 @@
-    <!-- Banner -->
+<!-- Banner -->
 <div id="introPic">
     <div id="drapes">
         <img [src]="bigLogo" width="290" alt="Norrlands Universitet">
     </div>
 </div>
 <section>
-    <p id="introText">Välj bland {{ courses.length }} kurser inom ?? och mer!</p>
+    <p id="introText">Välj bland {{ courses.length }} kurser inom
+        <ng-container *ngFor="let category of categories; let i=index">
+            <ng-container *ngIf="i < 4">
+                {{category }},
+            </ng-container>
+        </ng-container>
+    och mycket mer!</p>
     <!-- Navigation options -->
     <div id="alternatives">
         <a routerLink="../courses" id="ourCourses">
@@ -17,4 +23,4 @@
             <p>Dina kurser ►</p>
         </a>
     </div>
-</section>
+</section> 
