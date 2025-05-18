@@ -3,6 +3,7 @@ import { CourseTs } from '../../models/course.ts';
 import { HttpClientService } from '../../services/http-client.service';
 import { CommonModule, NgFor, NgIf, NgStyle } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ScheduleService } from '../../services/schedule.service.js';
 
 @Component({
   selector: 'app-courses',
@@ -14,6 +15,7 @@ export class CoursesComponent {
   courses: CourseTs[] = [];
   filteredCourses: CourseTs[] = [];
   categories: string[] = [];
+  newList: CourseTs[] = [];
 
   sortIcon: string = "sort_icon.svg"
 
@@ -23,7 +25,8 @@ export class CoursesComponent {
   moreCourses: boolean = false;
   clicked: boolean = false;
 
-  constructor( private courseService: HttpClientService ) {};
+  //Getting HTTP Client and Local storage
+  constructor( private courseService: HttpClientService, private scheduleService: ScheduleService ) {};
 
   ngOnInit() {
     //Fetching courses
@@ -36,6 +39,8 @@ export class CoursesComponent {
       //Setting default values for inputs
       const subjectDefault: string = this.categories[0];
       this.subjectValue = subjectDefault;
+
+      this.fetchCourses();
     })
   }
 
@@ -152,5 +157,32 @@ export class CoursesComponent {
         }
       })
     }
+  }
+  
+  //Fetching already saved courses
+  fetchCourses(): void {
+    const savedList: CourseTs[] | null= this.scheduleService.getList("courseList");
+    this.newList = savedList ?? [];
+  }
+
+  //Adding to course list
+  addCourse(course: CourseTs): void {
+    const checkDuplette: number = this.newList.findIndex(oldCourse => oldCourse.courseCode === course.courseCode);
+
+    if(checkDuplette === -1) {
+      this.newList.push(course);
+      this.saveList();
+      this.fetchCourses();
+    } else {
+      
+      /**
+       * Skriv ut något till skärmen
+       */
+    }
+  }
+
+  //Saving course list
+  saveList(): void {
+    this.scheduleService.setList("courseList", this.newList);
   }
 } 

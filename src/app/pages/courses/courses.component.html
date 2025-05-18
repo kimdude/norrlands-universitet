@@ -35,7 +35,7 @@
                 <p>{{ course.subject }}, {{ course.level }}({{course.progression}})</p>
                 <p>Kurskod: {{ course.courseCode }}</p>
             </div>
-            <button>Lägg till</button>
+            <button (click)="addCourse(course)">Lägg till</button>
         </article>
     </div>
     <!-- Visa fler kurser -->
