@@ -98,7 +98,6 @@ article {
     display: flex;
     padding: 20px 3%;
     margin: 20px 0px;
-    overflow: scroll;
     background-color: #E7E7E7;
     border-radius: 5px;
     box-shadow: 2px 0px 15px rgba(167, 167, 167, 0.7);
@@ -196,14 +195,11 @@ article > div > a {
 
 /* Screens under 640px*/
 @media screen and (max-width: 640px) {
-    article { flex-direction: column; }
+    article { flex-direction: column; overflow: scroll; }
     article > button { margin-right: auto; margin-top: 30px;}
     article > div { margin-left: 3%; margin-right: 3%; }
     .confirm { width: 70%; left: 15%; right: 15%;}
     #filterBtn { margin-left: 76%; }
-}
-
-@media screen and (max-width: 640px) {
     #seeMoreDiv { flex-direction: column; }
     #seeMoreDiv > p { margin-left: auto; margin-right: 2%;}
 }
