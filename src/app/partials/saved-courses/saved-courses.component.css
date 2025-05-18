@@ -1,0 +1,72 @@
+/* Course articles */
+article {
+    display: flex;
+    padding: 20px 3%;
+    margin: 20px 0px;
+    background-color: #E7E7E7;
+    border-radius: 5px;
+    box-shadow: 2px 0px 15px rgba(167, 167, 167, 0.7);
+}
+
+button, #moreBtn  {
+    height: 40px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+article > button, #moreBtn  {
+    box-shadow: 5px 0px 10px inset rgba(192, 148, 37,0.7),
+        0px 5px 10px inset rgba(255, 235, 184, 0.8);
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #FFC943;
+}
+
+article > button:hover, #emptyList > a:hover, #moreBtn:hover  {
+    box-shadow: 0px 0px 15px 2px inset rgba(192, 148, 37,0.7);
+}
+
+article > div > a {
+    color: black;
+}
+
+#moreBtn {
+    display: block;
+    width: fit-content;
+    height: 30px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    color: #000;
+}
+
+#clearBtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    border-color: #F24822;
+    color: #F24822;
+}
+
+#clearBtn:hover {
+    box-shadow: 0px 0px 15px 2px inset rgba(167, 167, 167,0.7) !important;
+}
+
+/* No courses */
+#emptyList > p {
+    margin-bottom: 40px;
+}
+
+#emptyList > a {
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color:black;
+    background-color: #FFC943;
+    box-shadow: 2px 0px 10px inset rgba(192, 148, 37,0.7);
+}

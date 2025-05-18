@@ -6,5 +6,6 @@ export interface CourseTs {
     level: string,
     progression: string,
     courseCode: string,
-    syllabus: string
+    syllabus: string,
+    added?: boolean
 }

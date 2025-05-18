@@ -1,5 +1,5 @@
 <!-- Search inputs -->
-<div id="inputsContainer">
+<div id="inputsContainer" *ngIf="!mediumScreen">
     <div id="inputs">
         <div id="filter">
             <label for="search">Sök: </label>
@@ -20,13 +20,24 @@
         <li>Kurskod</li>
         <li>Poäng</li>
     </ul> 
+    <button *ngIf="filterBtn" (click)="displayFilters()" id="filterBtn">Sök</button>
 </div>
+<img [src]="filterIcon" width="40" alt="Ikon för filtrering" id="filterMenu" *ngIf="mediumScreen" (click)="displayFilters()">
 <!-- Courses -->
 <section>
     <div id="searchResults">
         <h1>Kurser</h1>
         <p class="showedArticles">Antal kurser: {{ filteredCourses.length }}</p>
     </div>
+    <div class="confirm" *ngIf="added">
+        <p>Kursen är tillagd! </p>
+        <a routerLink="../schedule"> Till dina kurser ►</a>
+    </div>
+    <div class="confirm" *ngIf="removed">
+        <p>Kursen har tagits bort. </p>
+        <a routerLink="../schedule"> Till dina kurser ►</a>
+    </div>
+    <p *ngIf="filteredCourses.length === 0">Inga kurser hittades.</p>
     <!-- Artiklar för kurser-->
     <div *ngFor="let course of filteredCourses; let i=index">
         <article *ngIf="i < indexLimit ">
@@ -35,7 +46,8 @@
                 <p>{{ course.subject }}, {{ course.level }}({{course.progression}})</p>
                 <p>Kurskod: {{ course.courseCode }}</p>
             </div>
-            <button (click)="addCourse(course)">Lägg till</button>
+            <button (click)="addCourse(course)" *ngIf="course.added != true">Lägg till</button>
+            <button (click)="removeCourse(course.courseCode)" *ngIf="course.added === true">Tillagd</button>
         </article>
     </div>
     <!-- Visa fler kurser -->

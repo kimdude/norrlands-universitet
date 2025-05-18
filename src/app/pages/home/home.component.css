@@ -56,6 +56,17 @@ section {
     color: black;
 }
 
+/**/
+#courseList {
+    width: 80%;
+    margin-top: 100px;
+    padding: 10px 3% 40px 3%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    background-color: #B8B8B8;
+}
+
 @keyframes dropBanner {
     0% {top: -400px;}
     100% {top: 0px;}

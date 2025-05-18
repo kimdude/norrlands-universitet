@@ -1,27 +1,9 @@
 <!-- Summory -->
 <div id="summory">
-    <p>Antal kurser: {{ list.length }}</p> <!-- Räkna ut -->
-    <p>Antal poäng: {{ points }}</p> <!-- Räkna ut -->
+    <p>Antal kurser: {{ courses }}</p> <!-- Räkna ut -->
+    <p>Antal poäng: {{ totalPoints }}</p> <!-- Räkna ut -->
 </div>
 <!-- Courses -->
 <section>
-    <h1>Dina kurser</h1> 
-    <!-- If no courses are added -->
-    <div id="emptyList" *ngIf="list.length === 0">
-        <p>Inga kurser tillagda.</p>
-        <a routerLink="../courses">Hitta en kurs som passar dig ►</a>
-    </div>
-    <!-- List with added courses -->
-    <div *ngFor="let course of list">
-        <article>
-            <div>
-                <a href="{{ course.syllabus }}" target="_blank"><h2>{{ course.courseName }}, {{ course.points }} hp</h2></a>
-                <p>{{ course.subject }}, {{ course.level }}({{course.progression}})</p>
-                <p>Kurskod: {{ course.courseCode }}</p>
-            </div>
-            <button (click)="removeCourse(course.courseCode)">Ta bort</button>
-        </article>
-    </div>
-    <!-- Empty list button -->
-    <button (click)="removeList()" id="clearBtn" *ngIf="list.length > 0">Töm</button>
+    <app-saved-courses (totals)="countTotals($event)" [parentComp]="thisPage"></app-saved-courses>
 </section>
