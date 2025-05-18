@@ -202,7 +202,7 @@ article > div > a {
     #filterBtn { margin-left: 76%; }
     #seeMoreDiv { flex-direction: column; }
     #loadBtn { margin-left: auto; margin-right: auto; }
-    #seeMoreDiv > p { margin-left: auto; margin-right: 2%;}
+    #seeMoreDiv > p { margin-left: auto; margin-right: auto;}
 }
 
 /* Screens under 450px*/
