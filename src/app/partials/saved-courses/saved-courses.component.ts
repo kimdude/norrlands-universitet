@@ -21,7 +21,6 @@ export class SavedCoursesComponent {
 
   ngOnInit() {
     this.fetchList();
-    console.log(this.parentComp)
   }
 
   //Fetching course list

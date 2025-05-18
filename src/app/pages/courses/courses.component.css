@@ -77,6 +77,16 @@ li:hover {
     background-color: #B8B8B8;
 }
 
+#filterBtn {
+    position: absolute;
+    margin-left: 85%;
+    margin-top: -40px;
+    background-color: transparent;
+    border-color: #F24822;
+    box-shadow: 2px 0px 10px inset rgba(167, 167, 167, 0.7);
+    color: #F24822;
+}
+
 /* Courses */
 #searchResults {
     line-height: 0px;
@@ -88,6 +98,7 @@ article {
     display: flex;
     padding: 20px 3%;
     margin: 20px 0px;
+    overflow: scroll;
     background-color: #E7E7E7;
     border-radius: 5px;
     box-shadow: 2px 0px 15px rgba(167, 167, 167, 0.7);
@@ -118,7 +129,7 @@ article > button:hover {
 }
 
 #loadBtn {
-    margin-left: auto;
+    margin-left: 40%;
     margin-right: auto;
     background-color: transparent;
     border-color: #F24822;
@@ -147,10 +158,10 @@ article > div > a {
 .confirm {
     display: flex;
     position:fixed;
-    left: 40%;
-    right: 40%;
+    left: 30%;
+    right: 30%;
     bottom: 20px;
-    width: 30%;
+    width: 40%;
     align-items: center;
     justify-content: center;
     padding: 10px;
@@ -162,11 +173,37 @@ article > div > a {
 }
 
 .confirm > a {
+    margin-bottom: 0px;
     margin-left: 5px;
     color: #fff;
     text-decoration: none;
 }
 
-@media screen and (max-width: 800) {
-    #filterBtn { }
+.confirm > p {
+    margin: 0px;
+}
+
+/* Screens under 800px*/
+@media screen and (max-width: 800px) {
+    #inputs { display: block; }
+    #filter { margin-left: 3%; }
+    label { display: block; margin-top: 15px; margin-left: 0px; }
+    #sort { margin-left: 3%; margin-top: 20px;}
+    input, select { width: 70%; }
+    .confirm { width: 60%; left: 20%; right: 20%; }
+    #loadBtn { margin-left: 40%; }
+}
+
+/* Screens under 640px*/
+@media screen and (max-width: 640px) {
+    article { flex-direction: column; }
+    article > button { margin-right: auto; margin-top: 30px;}
+    article > div { margin-left: 3%; margin-right: 3%; }
+    .confirm { width: 70%; left: 15%; right: 15%;}
+    #filterBtn { margin-left: 76%; }
+}
+
+@media screen and (max-width: 640px) {
+    #seeMoreDiv { flex-direction: column; }
+    #seeMoreDiv > p { margin-left: auto; margin-right: 2%;}
 }

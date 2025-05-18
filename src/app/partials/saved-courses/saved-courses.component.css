@@ -26,6 +26,7 @@ article > button, #moreBtn  {
 }
 
 article > button:hover, #emptyList > a:hover, #moreBtn:hover  {
+    overflow: scroll;
     box-shadow: 0px 0px 15px 2px inset rgba(192, 148, 37,0.7);
 }
 
@@ -69,4 +70,11 @@ article > div > a {
     color:black;
     background-color: #FFC943;
     box-shadow: 2px 0px 10px inset rgba(192, 148, 37,0.7);
+}
+
+/* Screens under 800px*/
+@media screen and (max-width: 800px) {
+    article { flex-direction: column; }
+    article > button { margin-right: auto; margin-top: 30px;}
+    article > div { margin-left: 3%; margin-right: 3%; }
 }

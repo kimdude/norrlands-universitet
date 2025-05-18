@@ -1,8 +1,17 @@
 <!-- Main navigation -->
 <nav>
-    <ul>
+    <button *ngIf="smallScreen" (click)="displayMenu()">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    <ul *ngIf="!smallScreen">
         <a routerLink="home" routerLinkActive="active"><li>Hem</li></a>
         <a routerLink="courses" routerLinkActive="active"><li>Kurser</li></a>
         <a routerLink="schedule" routerLinkActive="active"><li>Ramschema</li></a>
+        <button id="closeBtn" *ngIf="closeBtn" (click)="displayMenu()">
+            <span class="line" id="line1"></span>
+            <span class="line" id="line2"></span>
+         </button>
     </ul>
 </nav>

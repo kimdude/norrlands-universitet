@@ -56,7 +56,7 @@ section {
     color: black;
 }
 
-/**/
+/* Child component */
 #courseList {
     width: 80%;
     margin-top: 100px;
@@ -67,7 +67,18 @@ section {
     background-color: #B8B8B8;
 }
 
+/* Animations */ 
 @keyframes dropBanner {
     0% {top: -400px;}
     100% {top: 0px;}
+}
+
+/* Screens under 800px */
+@media screen and (max-width: 800px) {
+    #introText { width: 80%; }
+}
+
+/* Screens under 640px */
+@media screen and (max-width: 640px) {
+    #courseList { margin-top: 70px; }
 }

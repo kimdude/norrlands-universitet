@@ -1,3 +1,29 @@
+/* Button */
+button {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+}
+
+.line {
+    display: block;
+    background-color: #fff;
+    height: 3px;
+    width: 30px;
+    margin: 5px;
+}
+
+#line1 {
+    transform: rotate(38deg);
+}
+
+#line2 {
+    transform: rotate(-38deg);
+    margin-top: -7px;
+}
+
+/* Menu list */
 ul {
     display: flex;
     margin: 0px;
@@ -14,4 +40,11 @@ a {
     font-weight: 700;
     background-color: #E7E7E7;
     color: #C73717;
+}
+
+/* Screens under 640px */
+@media screen and (max-width: 640px) {
+    ul { flex-direction: column; margin-top: 130px; background-color: #F24822; padding-left: 0px; padding-bottom: 30px; box-shadow: 0px 20px 10px rgba(99, 99, 99, 0.5); }
+    a { padding: 20px 20px; }
+    #closeBtn { margin-top: 20px; margin-left: auto; margin-right: auto; }
 }

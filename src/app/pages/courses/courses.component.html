@@ -13,6 +13,7 @@
             <p>Sortera</p>
             <img [src]="sortIcon" width="30" alt="Sortera knapp">
         </div>
+        <button *ngIf="filterBtn" (click)="displayFilters()" id="filterBtn">Sök</button>
     </div>
     <ul *ngIf="clicked" (click)="sortList($event)">
         <li>Kursnamn</li>
@@ -20,7 +21,6 @@
         <li>Kurskod</li>
         <li>Poäng</li>
     </ul> 
-    <button *ngIf="filterBtn" (click)="displayFilters()" id="filterBtn">Sök</button>
 </div>
 <img [src]="filterIcon" width="40" alt="Ikon för filtrering" id="filterMenu" *ngIf="mediumScreen" (click)="displayFilters()">
 <!-- Courses -->

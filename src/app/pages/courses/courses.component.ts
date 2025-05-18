@@ -233,7 +233,7 @@ export class CoursesComponent {
       this.mediumScreen = true;
       this.filterBtn = true;
     } 
-  }
+  } 
 
   //Displaying filter menu
   displayFilters(): void {
