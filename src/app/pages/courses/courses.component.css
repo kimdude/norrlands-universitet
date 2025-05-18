@@ -201,5 +201,11 @@ article > div > a {
     .confirm { width: 70%; left: 15%; right: 15%;}
     #filterBtn { margin-left: 76%; }
     #seeMoreDiv { flex-direction: column; }
+    #loadBtn { margin-left: auto; margin-right: auto; }
     #seeMoreDiv > p { margin-left: auto; margin-right: 2%;}
+}
+
+/* Screens under 450px*/
+@media screen and (max-width: 450px) {
+    .confirm { width: 90%; left: 3%; right: 3%; }
 }

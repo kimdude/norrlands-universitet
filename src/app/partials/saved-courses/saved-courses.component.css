@@ -58,6 +58,10 @@ article > div > a {
 }
 
 /* No courses */
+#emptyList {
+    margin-bottom: 60px;
+}
+
 #emptyList > p {
     margin-bottom: 40px;
 }
